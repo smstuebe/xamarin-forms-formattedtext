@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              x:Class="FormattedText.MainPage">
+  <StackLayout VerticalOptions="Center">
+    <Label FontFamily="LobsterTwo" Text="Normal Label" HorizontalTextAlignment="Center"></Label>
+    <Label FontFamily="LobsterTwo" Text="Bold Label" FontAttributes="Bold" HorizontalTextAlignment="Center"></Label>
+    <Label FontFamily="LobsterTwo" Text="Bigger Italic Label" FontSize="20" FontAttributes="Italic" HorizontalTextAlignment="Center"></Label>
+    <Label FontFamily="LobsterTwo" HorizontalTextAlignment="Center">
+      <Label.FormattedText>
+        <FormattedString>
+          <Span Text="FG only&#10;" ForegroundColor="Red"></Span>
+          <Span Text="BG only&#10;" BackgroundColor="Lime"></Span>
+          <Span Text="BG and FG&#10;" BackgroundColor="Fuchsia" ForegroundColor="White"></Span>
+          <Span Text="FG and Size&#10;" ForegroundColor="Green" FontSize="40"></Span>
+          <Span Text="Size and Bold&#10;" FontSize="20" FontAttributes="Bold"></Span>
+          <Span Text="Custom Font&#10;" FontFamily="Quantico"></Span>
+          <Span Text="All Attributes&#10;" FontFamily="Quantico" FontSize="20" FontAttributes="Bold,Italic" BackgroundColor="Black" ForegroundColor="White"></Span>
+        </FormattedString>
+      </Label.FormattedText>
+    </Label>
+  </StackLayout>
+</ContentPage>

@@ -1,2 +1,4 @@
 # xamarin-forms-formattedtext
-Sample app for enabling Cutom fonts on FormattedText on Labels
+Sample app for enabling cutom fonts on FormattedText on Labels.
+
+Blog post: 
