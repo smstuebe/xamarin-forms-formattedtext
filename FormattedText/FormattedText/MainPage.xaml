@@ -19,5 +19,14 @@
         </FormattedString>
       </Label.FormattedText>
     </Label>
+    <Label Text="Default Font Label" FontSize="20" FontAttributes="Italic" HorizontalTextAlignment="Center"></Label>
+    <Label HorizontalTextAlignment="Center">
+      <Label.FormattedText>
+        <FormattedString>
+          <Span Text="Default Formatted Font&#10;" ForegroundColor="Red"></Span>
+          <Span Text="Custom Formatted Font&#10;" FontFamily="Quantico"></Span>
+        </FormattedString>
+      </Label.FormattedText>
+    </Label>
   </StackLayout>
 </ContentPage>

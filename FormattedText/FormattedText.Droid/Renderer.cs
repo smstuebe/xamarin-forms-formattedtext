@@ -17,7 +17,7 @@ namespace FormattedText.Droid
         protected override void OnElementChanged(ElementChangedEventArgs<Label> e)
         {
             base.OnElementChanged(e);
-            if (Control != null)
+            if (Control != null && Element.FontFamily != null)
             {
                 Control.Typeface = Typeface.CreateFromAsset(Forms.Context.Assets, GetFontName(Element.FontFamily, Element.FontAttributes));
             }
@@ -55,13 +55,16 @@ namespace FormattedText.Droid
             var spans = ss.GetSpans(0, ss.ToString().Length, Class.FromType(type));
             foreach (var span in spans)
             {
-                var start = ss.GetSpanStart(span);
-                var end = ss.GetSpanEnd(span);
-                var flags = ss.GetSpanFlags(span);
                 var font = (Font)type.GetProperty("Font").GetValue(span, null);
-                ss.RemoveSpan(span);
-                var newSpan = new CustomTypefaceSpan(Control, Element, font);
-                ss.SetSpan(newSpan, start, end, flags);
+                if ((font.FontFamily ?? Element.FontFamily) != null)
+                {
+                    var start = ss.GetSpanStart(span);
+                    var end = ss.GetSpanEnd(span);
+                    var flags = ss.GetSpanFlags(span);
+                    ss.RemoveSpan(span);
+                    var newSpan = new CustomTypefaceSpan(Control, Element, font);
+                    ss.SetSpan(newSpan, start, end, flags);
+                }
             }
             Control.TextFormatted = ss;
         }
